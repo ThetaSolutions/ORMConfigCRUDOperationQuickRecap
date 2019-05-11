@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using StudentMangementSystem.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StudentMangementSystem.Models;
 
 namespace StudentMangementSystem
 {
@@ -38,6 +39,13 @@ namespace StudentMangementSystem
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddDbContext<StudentManagementSystemContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("MyCS")));
+
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
