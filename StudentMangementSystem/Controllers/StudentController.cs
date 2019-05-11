@@ -23,6 +23,7 @@ namespace StudentMangementSystem.Controllers
         }
 
 
+
         [HttpPost]
         public IActionResult AddNewStudent(Student S)
         {
@@ -36,6 +37,13 @@ namespace StudentMangementSystem.Controllers
         {
            return View(ORM.Student.ToList());
         }
+
+        [HttpGet]
+        public IActionResult StudentDetail(int id)
+        {
+            return View(ORM.Student.Find(id));
+        }
+
 
         [HttpGet]
         public IActionResult EditStudent(int id)
